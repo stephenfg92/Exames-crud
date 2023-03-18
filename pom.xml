@@ -1,0 +1,15 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.stephenfg.exames</groupId>
+  <artifactId>exames-crud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Exames Crud</name>
+  <description>Crud para inclusão de pacientes, exames e seus respectivos resultados</description>
+  <dependencies>
+    <dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.41.0.0</version>
+    </dependency>
+  </dependencies>
+</project>
