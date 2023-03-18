@@ -1,19 +1,36 @@
 package entidades;
 
 public class Observacao {
-	int idResultado;
+	Integer idObservacao;
+	Integer idResultado;
 	String observacao;
 	
-	public Observacao(int idResultado, String observacao) {
+	public Observacao(Integer idResultado, String observacao) {
+		this.idObservacao = null;
+		this.idResultado = idResultado;
+		this.observacao = observacao;
+	}
+	
+	public Observacao(Integer idObservacao, Integer idResultado, String observacao) {
+		this.idObservacao = idObservacao;
 		this.idResultado = idResultado;
 		this.observacao = observacao;
 	}
 
-	public int getIdResultado() {
+	public Integer getIdObservacao() {
+		return idObservacao;
+	}
+
+	public Observacao setIdObservacao(Integer idObservacao) {
+		this.idObservacao = idObservacao;
+		return this;
+	}
+
+	public Integer getIdResultado() {
 		return idResultado;
 	}
 
-	public Observacao setIdResultado(int idResultado) {
+	public Observacao setIdResultado(Integer idResultado) {
 		this.idResultado = idResultado;
 		return this;
 	}

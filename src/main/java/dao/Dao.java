@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Dao {
+public abstract class Dao {
 	private String stringConexao;
 	Connection conexao;
 	PreparedStatement stmt;

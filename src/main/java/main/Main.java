@@ -2,14 +2,19 @@ package main;
 
 import java.sql.SQLException;
 
-import dao.Dao;
+import dao.PacientesDao;
+import entidades.Paciente;
 
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		Dao dao = new Dao();
-		dao.conectar();
-		dao.desconectar();
+		PacientesDao pDao = new PacientesDao();
+		
+		Integer idPaciente = pDao.inserir(new Paciente("James"));
+		
+		Paciente p = pDao.getPaciente(idPaciente);
+		
+		System.out.println("FIM");
 	}
 
 }

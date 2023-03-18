@@ -1,12 +1,30 @@
 package entidades;
 
 public class Exame {
+	Integer idExame;
+
 	String nome;
 	String descricao;
 	
 	public Exame(String nome, String descricao) {
+		this.idExame = null;
 		this.nome = nome;
 		this.descricao = descricao;
+	}
+	
+	public Exame(Integer idExame, String nome, String descricao) {
+		this.idExame = idExame;
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+	
+	public Integer getIdExame() {
+		return idExame;
+	}
+
+	public Exame setIdExame(Integer idExame) {
+		this.idExame = idExame;
+		return this;
 	}
 	
 	public String getNome() {
