@@ -14,17 +14,13 @@ public class PacientesDao extends Dao{
 		try {
 			conectar();
 			
-			stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, p.getNome());
 			
-			int numLinhasCriadas = stmt.executeUpdate();
+			stmt.executeUpdate();			
 			
-			if (numLinhasCriadas > 0) {
-				rs = stmt.getGeneratedKeys();
-				if(rs.next()) {
-					pacienteId = rs.getInt(1);
-				}
-			}
+			rs = stmt.getGeneratedKeys();
+			pacienteId = rs.getInt("last_insert_rowid()");
 			
 		} catch (SQLException e) {
 			System.out.println("Inserção de paciente falhou: " + e);
@@ -46,7 +42,7 @@ public class PacientesDao extends Dao{
 			
 			rs = stmt.executeQuery();
 			while(rs.next()){
-				Paciente p = new Paciente(rs.getString("nome"));
+				Paciente p = new Paciente(rs.getInt("IdPaciente"), rs.getString("Nome"));
 				pacientes.add(p);
 			}
 			
@@ -72,7 +68,7 @@ public class PacientesDao extends Dao{
 			
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				p = new Paciente(rs.getInt(1), rs.getString("nome"));
+				p = new Paciente(rs.getInt("IdPaciente"), rs.getString("Nome"));
 			}
 			
 			
@@ -98,7 +94,7 @@ public class PacientesDao extends Dao{
 			
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				p = new Paciente(rs.getInt(1), rs.getString("nome"));
+				p = new Paciente(rs.getInt("IdPaciente"), rs.getString("Nome"));
 			}
 			
 			assert(p.getIdPaciente().equals(idPaciente));			
