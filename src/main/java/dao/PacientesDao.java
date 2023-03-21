@@ -15,7 +15,7 @@ public class PacientesDao extends Dao{
 			conectar();
 			
 			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, p.getNome());
+			stmt.setString(1, p.getNomePaciente());
 			
 			stmt.executeUpdate();			
 			

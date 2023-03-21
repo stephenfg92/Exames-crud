@@ -27,11 +27,11 @@ public class Paciente {
 		this.idPaciente = idPaciente;
 	}
 
-	public String getNome() {
+	public String getNomePaciente() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNomePaciente(String nome) {
 		this.nome = nome;
 	}
 	

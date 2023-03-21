@@ -17,6 +17,10 @@
             <result name="success">/pacientes.jsp</result>
         </action>
         
+        <action name="pacienteListar" class="actions.PacienteListar">
+            <result name="success">/pacienteListar.jsp</result>
+        </action>
+        
         <action name="pacienteIncluir" class="actions.PacienteIncluir" method="execute">
 			<result name="input">/pacienteIncluir.jsp</result>
             <result name="success">/pacienteIncluirSucesso.jsp</result>
