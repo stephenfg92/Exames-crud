@@ -35,17 +35,24 @@ public class ResultadosDao extends Dao{
 		return idResultado;		
 	}
 	
+	
+	
 	public ArrayList<Resultado> listar() {
-		String sql = "SELECT * FROM Resultados;";
+		StringBuilder sql = new StringBuilder()
+				.append(" SELECT IdResultado, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado ")
+				.append(" FROM Resultados AS r ")
+				.append(" JOIN Exames AS e ")
+				.append(" ON r.IdExame = e.IdExame; ");
+						
 		ArrayList<Resultado> resultados = new ArrayList<Resultado>();
 		
 		try {
 			conectar();
-			stmt = conexao.prepareStatement(sql);
+			stmt = conexao.prepareStatement(sql.toString());
 			
 			rs = stmt.executeQuery();
 			while(rs.next()){
-				Resultado r = new Resultado(rs.getInt("IdResultado"), rs.getInt("IdExame"), rs.getString("Data"), rs.getString("Resultado"));
+				Resultado r = new Resultado(rs.getInt("IdResultado"), rs.getInt("IdExame"), rs.getString("NomeExame"), rs.getString("Data"), rs.getString("Resultado"));
 				resultados.add(r);
 			}
 			

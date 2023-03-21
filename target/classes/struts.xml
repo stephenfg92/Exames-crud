@@ -7,7 +7,7 @@
 
     <constant name="struts.devMode" value="true" />
 
-    <package name="basicstruts2" extends="struts-default">
+    <package name="exames" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>
         </action>
@@ -64,6 +64,11 @@
             <result name="success" type="redirectAction">
 				<param name="actionName">exameListar</param>
 			</result>
+        </action>
+        
+        <!-- Resultado -->
+        <action name="resultadoListar" class="actions.ResultadoListar" method="execute">
+            <result name="success">/resultado/resultadoListar.jsp</result>
         </action>
         
     </package>
