@@ -9,7 +9,7 @@
   <body>
     <h2><s:property value="pacientesDao.message" /></h2>
 
-    <s:form action="listarPacientes">
+    <s:form action="pacientes">
       <s:textfield name="pacienteNome" label="Nome do Paciente" />
       <s:submit value="Incluir" />
     </s:form>

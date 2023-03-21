@@ -13,8 +13,8 @@
         </action>
         
                 
-        <action name="listarPacientes" class="actions.ListarPacientesAction" method="execute">
-            <result name="success">/ListarPacientes.jsp</result>
+        <action name="pacientes" class="actions.PacientesAction" method="execute">
+            <result name="success">/pacientes.jsp</result>
         </action>
         
     </package>

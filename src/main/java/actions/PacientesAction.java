@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.PacientesDao;
 
-public class ListarPacientesAction extends ActionSupport{
+public class PacientesAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private PacientesDao pDao;
 	
