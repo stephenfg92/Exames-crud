@@ -10,6 +10,7 @@ import dao.PacientesDao;
 public class PacienteExcluir extends ActionSupport{
 	private int idPaciente;
 	private ArrayList<Paciente> pacientes;
+	private Paciente paciente;
 	
 	public int getIdPaciente() {
 		return idPaciente;
@@ -24,6 +25,12 @@ public class PacienteExcluir extends ActionSupport{
 		this.pacientes = pacientes;
 	}
 	
+	public Paciente getPaciente() {
+		return paciente;
+	}
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
 	@Override
 	public String execute() {
 		PacientesDao pDao = new PacientesDao();

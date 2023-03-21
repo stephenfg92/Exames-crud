@@ -18,6 +18,7 @@
         
         <action name="pacienteObter" class="actions.PacienteObter" method="execute">
             <result name="success">/pacienteEditar.jsp</result>
+			<result name="input">/pacienteExcluir.jsp</result>
         </action>
         
         <action name="pacienteIncluir" class="actions.PacienteIncluir" method="execute">
@@ -30,12 +31,13 @@
 				<param name="actionName">pacienteListar</param>
 			</result>
         </action>
-        
+
         <action name="pacienteExcluir" class="actions.PacienteExcluir">
             <result name="success" type="redirectAction">
 				<param name="actionName">pacienteListar</param>
 			</result>
         </action>
+
         
     </package>
 

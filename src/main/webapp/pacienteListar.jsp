@@ -29,12 +29,14 @@
                 <td>
                     <s:url action="pacienteObter" var="linkPacienteAtualizar">
                         <s:param name="idPaciente"><s:property value="#p.getIdPaciente()"></s:property></s:param>
+                        <s:param name="excluir"><s:property value="false"></s:property></s:param>
                     </s:url>
                     <s:a href="%{linkPacienteAtualizar}">Editar</s:a><br>
                 </td>
                 <td>
-                    <s:url action="pacienteExcluir" var="linkPacienteExcluir">
+                    <s:url action="pacienteObter" var="linkPacienteExcluir">
                         <s:param name="idPaciente"><s:property value="#p.getIdPaciente()"></s:property></s:param>
+                        <s:param name="excluir"><s:property value="true"></s:property></s:param>
                     </s:url>
                     <s:a href="%{linkPacienteExcluir}">Excluir</s:a><br>
                 </td>
