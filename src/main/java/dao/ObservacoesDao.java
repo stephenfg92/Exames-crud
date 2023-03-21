@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import entidades.Observacao;
+import entidades.Paciente;
 
 public class ObservacoesDao extends Dao{
 	public Integer inserir(Observacao o) {
@@ -55,6 +56,55 @@ public class ObservacoesDao extends Dao{
 		}
 		
 		return observacoes;		
+	}
+	
+	public boolean editar(Observacao o) {
+		String sql = "UPDATE Observacoes SET Observacao = ? WHERE IdObservacao = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, o.getObservacao());
+			stmt.setInt(2, o.getIdObservacao());
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Edição de observação falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
+	}
+	
+	public boolean excluir(int idObservacao) {
+		String sql = "DELETE FROM Observacoes WHERE IdObservacao = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, idObservacao);
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Exclusão de observação falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
 	}
 	
 	

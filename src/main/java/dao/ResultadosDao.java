@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import entidades.Paciente;
 import entidades.Resultado;
 
 public class ResultadosDao extends Dao{
@@ -56,6 +57,56 @@ public class ResultadosDao extends Dao{
 		}
 		
 		return resultados;		
+	}
+	
+	public boolean editar(Resultado r) {
+		String sql = "UPDATE Resultados SET Data = ?, Resultado = ? WHERE IdResultado = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, r.getData());
+			stmt.setString(2, r.getResultado());
+			stmt.setInt(3, r.getIdResultado());
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Edição de resultado falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
+	}
+	
+	public boolean excluir(int idResultado) {
+		String sql = "DELETE FROM Resultados WHERE IdResultado = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, idResultado);
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Exclusão de resultado falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
 	}
 	
 	

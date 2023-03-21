@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import entidades.Exame;
+import entidades.Paciente;
 
 public class ExamesDao extends Dao{
 	public Integer inserir(Exame ex) {
@@ -55,6 +56,56 @@ public class ExamesDao extends Dao{
 		}
 		
 		return exames;		
+	}
+	
+	public boolean editar(Exame ex) {
+		String sql = "UPDATE Exames SET Nome = ?, Descricao = ? WHERE IdExame = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, ex.getNome());
+			stmt.setString(2, ex.getDescricao());
+			stmt.setInt(2, ex.getIdExame());
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Edição de exame falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
+	}
+	
+	public boolean excluir(int idExame) {
+		String sql = "DELETE FROM Exames WHERE IdExame = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, idExame);
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Exclusão de exame falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
 	}
 
 	
