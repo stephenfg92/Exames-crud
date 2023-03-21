@@ -1,10 +1,10 @@
 dao\ObservacoesDao.class
 entidades\Paciente.class
-dao\PacientesDao.class
 entidades\Exame.class
+main\Main.class
+dao\PacientesDao.class
 dao\ResultadosDao.class
 dao\Dao.class
 entidades\Observacao.class
 entidades\Resultado.class
-main\Main.class
 dao\ExamesDao.class

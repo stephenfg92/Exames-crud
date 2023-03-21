@@ -109,6 +109,10 @@ public class PacientesDao extends Dao{
 		return p;
 	}
 	
+	
+	public String getMessage() {
+		return "Boa!";
+	}
 
 
 }
