@@ -4,6 +4,11 @@ public class Paciente {
 	Integer idPaciente;
 	String nome;
 	
+	public Paciente() {
+		this.idPaciente = null;
+		this.nome = null;
+	}
+	
 	public Paciente(String nome) {
 		this.idPaciente = null;
 		this.nome = nome;
@@ -18,18 +23,16 @@ public class Paciente {
 		return idPaciente;
 	}
 
-	public Paciente setIdPaciente(Integer idPaciente) {
+	public void setIdPaciente(Integer idPaciente) {
 		this.idPaciente = idPaciente;
-		return this;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public Paciente setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
-		return this;
 	}
 	
 	

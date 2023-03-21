@@ -8,6 +8,6 @@
     </head>
   <body>
     <h1>Welcome To Struts 2!</h1>
-    <p><a href="<s:url action='pacientes'/>">Listar Pacientes</a></p>
+    <p><a href="<s:url action='pacienteIncluir'/>">Incluir Paciente</a></p>
   </body>
 </html>
