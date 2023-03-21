@@ -13,17 +13,17 @@
         </action>
         
         <action name="pacienteListar" class="actions.PacienteListar" method="execute">
-            <result name="success">/pacienteListar.jsp</result>
+            <result name="success">/paciente/pacienteListar.jsp</result>
         </action>
         
         <action name="pacienteObter" class="actions.PacienteObter" method="execute">
-            <result name="success">/pacienteEditar.jsp</result>
-			<result name="input">/pacienteExcluir.jsp</result>
+            <result name="success">/paciente/pacienteEditar.jsp</result>
+			<result name="input">/paciente/pacienteExcluir.jsp</result>
         </action>
         
         <action name="pacienteIncluir" class="actions.PacienteIncluir" method="execute">
-			<result name="input">/pacienteIncluir.jsp</result>
-            <result name="success">/pacienteIncluirSucesso.jsp</result>
+			<result name="input">/paciente/pacienteIncluir.jsp</result>
+            <result name="success">/paciente/pacienteIncluirSucesso.jsp</result>
         </action>
         
         <action name="pacienteEditar" class="actions.PacienteEditar">
