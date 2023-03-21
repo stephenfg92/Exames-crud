@@ -17,13 +17,29 @@
             <result name="success">/pacientes.jsp</result>
         </action>
         
-        <action name="pacienteListar" class="actions.PacienteListar">
+        <action name="pacienteListar" class="actions.PacienteListar" method="execute">
             <result name="success">/pacienteListar.jsp</result>
+        </action>
+        
+        <action name="pacienteObter" class="actions.PacienteObter" method="execute">
+            <result name="success">/pacienteEditar.jsp</result>
         </action>
         
         <action name="pacienteIncluir" class="actions.PacienteIncluir" method="execute">
 			<result name="input">/pacienteIncluir.jsp</result>
             <result name="success">/pacienteIncluirSucesso.jsp</result>
+        </action>
+        
+        <action name="pacienteEditar" class="actions.PacienteEditar">
+            <result name="success" type="redirectAction">
+				<param name="actionName">pacienteListar</param>
+			</result>
+        </action>
+        
+        <action name="pacienteExcluir" class="actions.PacienteExcluir">
+            <result name="success" type="redirectAction">
+				<param name="actionName">pacienteListar</param>
+			</result>
         </action>
         
     </package>

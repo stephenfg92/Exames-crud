@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Registration Successful</title>
+    <title>Inclusão de paciente concluída</title>
   </head>
   <body>
-    <h3>Thank you for registering for a prize.</h3>
+    <h3>Paciente <s:property value="paciente.nomePaciente" /> incluído com sucesso.</h3>
 
-    <p>Your registration information: <s:property value="paciente" /> </p>
-
-    <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+    <p><a href="<s:url action='pacienteListar' />" >OK</a>.</p>
   </body>
 </html

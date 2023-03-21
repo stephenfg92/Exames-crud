@@ -35,5 +35,4 @@ public class Paciente {
 		this.nome = nome;
 	}
 	
-	
 }

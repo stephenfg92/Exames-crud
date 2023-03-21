@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Pacientes</h1>
+        <p><a href="<s:url action='pacienteIncluir'/>">Incluir Paciente</a></p>
         <table cellspacing="10">
             <tr>
                 <th>
@@ -25,21 +26,20 @@
                 <td>
                     <s:property value="#p.getNomePaciente()"></s:property>
                 </td>
-                <%--<td>
-                    <s:url action="ObterCliente" var="linkAtualizar">
-                        <s:param name="clienteId"><s:property value="#c.getId()"></s:property></s:param>
+                <td>
+                    <s:url action="pacienteObter" var="linkPacienteAtualizar">
+                        <s:param name="idPaciente"><s:property value="#p.getIdPaciente()"></s:property></s:param>
                     </s:url>
-                    <s:a href="%{linkAtualizar}">Atualizar</s:a><br>
+                    <s:a href="%{linkPacienteAtualizar}">Editar</s:a><br>
                 </td>
                 <td>
-                    <s:url action="DeletarCliente" var="linkDeletar">
-                        <s:param name="clienteId"><s:property value="#c.getId()"></s:property></s:param>
+                    <s:url action="pacienteExcluir" var="linkPacienteExcluir">
+                        <s:param name="idPaciente"><s:property value="#p.getIdPaciente()"></s:property></s:param>
                     </s:url>
-                    <s:a href="%{linkDeletar}">Deletar</s:a><br>
-                </td>--%>
+                    <s:a href="%{linkPacienteExcluir}">Excluir</s:a><br>
+                </td>
             </tr>
         </s:iterator>
         </table>
-        <a href="index.jsp">Voltar</a><br>
     </body>
 </html>

@@ -32,6 +32,55 @@ public class PacientesDao extends Dao{
 		return pacienteId;		
 	}
 	
+	public boolean editar(Paciente p) {
+		String sql = "UPDATE Pacientes SET Nome = ? WHERE IdPaciente = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, p.getNomePaciente());
+			stmt.setInt(2, p.getIdPaciente());
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Edição de paciente falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
+	}
+	
+	public boolean excluir(int idPaciente) {
+		String sql = "DELETE FROM Pacientes WHERE IdPaciente = ?;";
+		boolean sucesso = false;
+		
+		try {
+			conectar();
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, idPaciente);
+			
+			stmt.executeUpdate();
+			
+			sucesso = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Exclusão de paciente falhou: " + e);
+			e.printStackTrace();
+		} finally {
+			desconectar();
+		}
+		
+		return sucesso;		
+	}
+	
 	public ArrayList<Paciente> listar() {
 		String sql = "SELECT * FROM Pacientes;";
 		ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
@@ -108,11 +157,4 @@ public class PacientesDao extends Dao{
 		
 		return p;
 	}
-	
-	
-	public String getMessage() {
-		return "Boa!";
-	}
-
-
 }
