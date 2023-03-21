@@ -6,6 +6,12 @@ public class Exame {
 	String nome;
 	String descricao;
 	
+	public Exame(){
+		this.idExame = null;
+		this.nome = null;
+		this.descricao = null;
+	}
+	
 	public Exame(String nome, String descricao) {
 		this.idExame = null;
 		this.nome = nome;
@@ -22,27 +28,24 @@ public class Exame {
 		return idExame;
 	}
 
-	public Exame setIdExame(Integer idExame) {
+	public void setIdExame(Integer idExame) {
 		this.idExame = idExame;
-		return this;
 	}
 	
 	public String getNome() {
 		return nome;
 	}
 
-	public Exame setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
-		return this;
 	}
 
 	public String getDescricao() {
 		return descricao;
 	}
 
-	public Exame setDescricao(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-		return this;
 	}
 
 

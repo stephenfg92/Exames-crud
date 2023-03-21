@@ -6,6 +6,7 @@ import dao.PacientesDao;
 import entidades.Paciente;
 
 public class PacienteObter extends ActionSupport{
+	private static final long serialVersionUID = 1L;
 	private int idPaciente;
 	private Paciente paciente;
 	private boolean excluir;

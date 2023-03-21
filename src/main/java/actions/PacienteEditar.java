@@ -7,7 +7,7 @@ import dao.PacientesDao;
 import entidades.Paciente;
 
 public class PacienteEditar extends ActionSupport {
-	
+	private static final long serialVersionUID = 1L;
 	private int idPaciente;
 	private String nomePaciente;
 	private ArrayList<Paciente> pacientes;

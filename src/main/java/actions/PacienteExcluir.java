@@ -8,6 +8,7 @@ import entidades.Paciente;
 import dao.PacientesDao;
 
 public class PacienteExcluir extends ActionSupport{
+	private static final long serialVersionUID = 1L;
 	private int idPaciente;
 	private ArrayList<Paciente> pacientes;
 	private Paciente paciente;

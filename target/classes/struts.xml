@@ -12,6 +12,7 @@
             <result>/index.jsp</result>
         </action>
         
+		<!-- Paciente -->
         <action name="pacienteListar" class="actions.PacienteListar" method="execute">
             <result name="success">/paciente/pacienteListar.jsp</result>
         </action>
@@ -37,7 +38,33 @@
 				<param name="actionName">pacienteListar</param>
 			</result>
         </action>
+        
+        <!-- Exame -->
+        <action name="exameListar" class="actions.ExameListar" method="execute">
+            <result name="success">/exame/exameListar.jsp</result>
+        </action>
+        
+        <action name="exameObter" class="actions.ExameObter" method="execute">
+            <result name="success">/exame/exameEditar.jsp</result>
+			<result name="input">/exame/exameExcluir.jsp</result>
+        </action>
+        
+        <action name="exameIncluir" class="actions.ExameIncluir" method="execute">
+			<result name="input">/exame/exameIncluir.jsp</result>
+            <result name="success">/exame/exameIncluirSucesso.jsp</result>
+        </action>
+        
+        <action name="exameEditar" class="actions.ExameEditar">
+            <result name="success" type="redirectAction">
+				<param name="actionName">exameListar</param>
+			</result>
+        </action>
 
+        <action name="exameExcluir" class="actions.ExameExcluir">
+            <result name="success" type="redirectAction">
+				<param name="actionName">exameListar</param>
+			</result>
+        </action>
         
     </package>
 

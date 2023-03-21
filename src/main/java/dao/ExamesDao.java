@@ -68,7 +68,7 @@ public class ExamesDao extends Dao{
 			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, ex.getNome());
 			stmt.setString(2, ex.getDescricao());
-			stmt.setInt(2, ex.getIdExame());
+			stmt.setInt(3, ex.getIdExame());
 			
 			stmt.executeUpdate();
 			
