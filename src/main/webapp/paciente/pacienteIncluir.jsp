@@ -5,13 +5,14 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Incluir Paciente</title>
+    <link rel="stylesheet" href="css/crud.css">    
   </head>
   <body>
     <h3>Insira os dados para inclusão de paciente</h3>
 
     <s:form action="pacienteIncluir">
       <s:textfield name="paciente.nomePaciente" label="Nome completo" />
-      <s:submit/>
+      <s:submit class="submit" value="Incluir"/>
     </s:form>	
 
     <p><a href="<s:url action='pacienteListar'/>">Voltar</a></p>

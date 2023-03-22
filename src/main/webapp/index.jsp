@@ -2,12 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Basic Struts 2 Application - Welcome</title>
-    </head>
-  <body>
-    <h1>Welcome To Struts 2!</h1>
-    <p><a href="<s:url action='pacienteIncluir'/>">Incluir Paciente</a></p>
-  </body>
+<head>
+	<title>Exames-crud</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<section>
+		<nav>
+			<ul>
+				<li><a href="<s:url action='pacienteListar'/>" target="frame">Pacientes</a></li>
+				<li><a href="<s:url action='exameListar'/>" target="frame">Exames</a></li>
+				<li><a href="<s:url action='resultadoListar'/>" target="frame">Resultados</a></li>
+			</ul>
+		</nav>
+		<iframe src="<s:url action='pacienteListar'/>" name="frame" class="scroller"></iframe>
+	</section>
+</body>
 </html>

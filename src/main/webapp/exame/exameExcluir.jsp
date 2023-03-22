@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Exames crud</title>
+        <link rel="stylesheet" href="css/crud.css">
     </head>
     <body>
         <h1>Excluir exame</h1>
@@ -14,8 +15,8 @@
         <p>Descrição: <s:property value="%{exame.getDescricao()}"></s:property></p>
         <s:form action="exameExcluir" method="POST">
             <s:hidden name="idExame" value="%{exame.getIdExame()}"></s:hidden>
-            <s:submit value="Excluir"></s:submit>
+            <s:submit class="submit" value="Excluir"></s:submit>
         </s:form>
-        <p><a href="<s:url action='exameListar' />" >Voltar</a>.</p>
+        <p><a href="<s:url action='exameListar' />" >Voltar</a></p>
     </body>
 </html>

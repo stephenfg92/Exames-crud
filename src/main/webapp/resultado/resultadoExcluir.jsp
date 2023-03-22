@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>resultados crud</title>
+        <link rel="stylesheet" href="css/crud.css">
     </head>
     <body>
         <h1>Excluir resultado</h1>
@@ -16,8 +17,8 @@
         <p>Resultado: <s:property value="%{resultado.getResultado()}"></s:property></p>
         <s:form action="resultadoExcluir" method="POST">
             <s:hidden name="idResultado" value="%{resultado.getIdResultado()}"></s:hidden>
-            <s:submit value="Excluir"></s:submit>
+            <s:submit class="submit" value="Excluir"></s:submit>
         </s:form>
-        <p><a href="<s:url action='resultadoListar' />" >Voltar</a>.</p>
+        <p><a href="<s:url action='resultadoListar' />" >Voltar</a></p>
     </body>
 </html>

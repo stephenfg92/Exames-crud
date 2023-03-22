@@ -5,6 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Inclusão de resultado concluída</title>
+    <link rel="stylesheet" href="css/crud.css">
   </head>
   <body>
     <h3>Resultado de exame <s:property value="resultadoObj.nomeExame" /> 

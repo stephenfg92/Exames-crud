@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Exames crud</title>
+        <link rel="stylesheet" href="css/crud.css">        
     </head>
     <body>
         <h1>Excluir Paciente</h1>
@@ -13,8 +14,8 @@
         <p>Nome: <s:property value="%{paciente.getNomePaciente()}"></s:property></p>
         <s:form action="pacienteExcluir" method="POST">
             <s:hidden name="idPaciente" value="%{paciente.getIdPaciente()}"></s:hidden>
-            <s:submit value="Excluir"></s:submit>
+            <s:submit class="submit" value="Excluir"></s:submit>
         </s:form>
-        <p><a href="<s:url action='pacienteListar' />" >Voltar</a>.</p>
+        <p><a href="<s:url action='pacienteListar' />" >Voltar</a></p>
     </body>
 </html>

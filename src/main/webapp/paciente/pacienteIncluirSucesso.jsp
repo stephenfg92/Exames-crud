@@ -5,6 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Inclusão de paciente concluída</title>
+    <link rel="stylesheet" href="css/crud.css">
   </head>
   <body>
     <h3>Paciente <s:property value="paciente.nomePaciente" /> incluído com sucesso.</h3>

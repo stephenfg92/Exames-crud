@@ -5,6 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Incluir Resultado</title>
+    <link rel="stylesheet" href="css/crud.css">
     <script type="text/javascript" src="js/inputmask.min.js"></script>
     <script type="text/javascript" src="js/validardata.js"></script>
   </head>
@@ -17,7 +18,7 @@
       <s:textfield name="resultadoObj.data" label="Data" class="inputMasked"/>
       <script>Inputmask("99/99/9999").mask(".inputMasked");</script>
       <s:textfield name="resultadoObj.resultado" label="Resultado" />
-      <s:submit/>
+      <s:submit class="submit" value="Incluir"/>
     </s:form>	
     <p><a href="<s:url action='resultadoListar'/>">Voltar</a></p>
     <script>
