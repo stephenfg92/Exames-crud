@@ -7,6 +7,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import entidades.Exame;
 import entidades.Paciente;
 import entidades.Resultado;
+import dao.ExamesDao;
+import dao.PacientesDao;
 import dao.ResultadosDao;
 
 public class ResultadoIncluir extends ActionSupport{
@@ -49,8 +51,11 @@ public class ResultadoIncluir extends ActionSupport{
 	}
 	
 	public String execute() {
-		if (resultadoObj == null)
+		if (resultadoObj == null) {
+			exames = new ExamesDao().listar();
+			pacientes = new PacientesDao().listar();
 			return INPUT;
+		}
 		
 		ResultadosDao rDao = new ResultadosDao();
 		Integer idResultado = rDao.inserir(resultadoObj);

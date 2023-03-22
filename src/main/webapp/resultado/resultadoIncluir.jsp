@@ -10,8 +10,8 @@
     <h3>Insira os dados para inclusão de resultado</h3>
 
     <s:form action="resultadoIncluir">
-      <s:textfield name="resultadoObj.idExame" label="Id Exame" />
-      <s:textfield name="resultadoObj.idPaciente" label="Id Paciente" />
+      <s:select name="resultadoObj.idExame" label="Exame" list="exames" listKey="idExame" listValue="nome" />
+      <s:select name="resultadoObj.idPaciente" label="Paciente" list="pacientes" listKey="idPaciente" listValue="nomePaciente" />
       <s:textfield name="resultadoObj.data" label="Data" />
       <s:textfield name="resultadoObj.resultado" label="Resultado" />
       <s:submit/>
