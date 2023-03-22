@@ -81,6 +81,12 @@
             <result name="success">/resultado/resultadoIncluirSucesso.jsp</result>
         </action>
         
+        <action name="resultadoExcluir" class="actions.ResultadoExcluir">
+            <result name="success" type="redirectAction">
+				<param name="actionName">resultadoListar</param>
+			</result>
+        </action>
+        
     </package>
 
 </struts>
