@@ -1,5 +1,12 @@
 package entidades;
 
+import org.apache.commons.validator.routines.DateValidator;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;  
+
 public class Resultado {
 	Integer idResultado;
 	Integer idExame;
@@ -96,5 +103,37 @@ public class Resultado {
 
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
+	}
+	
+	public static boolean validarData(String dataString) throws ParseException {
+		DateValidator validador = new DateValidator();
+		DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		Date dataAtual = removerHoras(new Date());
+		boolean valido = false;
+		
+		try {
+			Date data = formato.parse(dataString);
+			
+			boolean dataMaiorOuIgualAtual = data.compareTo(dataAtual) >= 0;
+			boolean formatoValido = validador.isValid(dataString, "dd/MM/yyyy");
+			
+			if (dataMaiorOuIgualAtual && formatoValido)
+				valido = true;			
+		} catch (Exception e) {
+			System.out.println("Validação de data falhou: " + e);
+			e.printStackTrace();
+		}
+		
+		return valido;
+	}
+	
+	private static Date removerHoras(Date d) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(d);
+		c.set(Calendar.HOUR, 0);
+		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
+		return c.getTime();
 	}
 }

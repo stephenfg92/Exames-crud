@@ -1,5 +1,6 @@
 package actions;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -50,12 +51,15 @@ public class ResultadoIncluir extends ActionSupport{
 		this.resultadoObj = resultadoObj;
 	}
 	
-	public String execute() {
+	public String execute() throws ParseException {
 		if (resultadoObj == null) {
 			exames = new ExamesDao().listar();
 			pacientes = new PacientesDao().listar();
 			return INPUT;
 		}
+		
+		if(!Resultado.validarData(resultadoObj.getData()))
+			return ERROR;
 		
 		ResultadosDao rDao = new ResultadosDao();
 		Integer idResultado = rDao.inserir(resultadoObj);

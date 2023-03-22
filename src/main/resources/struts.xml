@@ -82,6 +82,7 @@
 				<param name="location">/resultado/resultadoIncluir.jsp</param>
 			</result>
             <result name="success">/resultado/resultadoIncluirSucesso.jsp</result>
+            <result name="error">/resultado/resultadoIncluirErro.jsp</result>
         </action>
         
         <action name="resultadoExcluir" class="actions.ResultadoExcluir">
