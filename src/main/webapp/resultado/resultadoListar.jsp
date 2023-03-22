@@ -18,6 +18,9 @@
                     Data
                 </th>
                 <th>
+                    Paciente
+                </th>
+                <th>
                     Exame
                 </th>
                 <th>
@@ -31,6 +34,9 @@
                 </td>
                 <td>
                     <s:property value="#r.getData()"></s:property>
+                </td>
+                <td>
+                    <s:property value="#r.getNomePaciente()"></s:property>
                 </td>
                 <td>
                     <s:property value="#r.getNomeExame()"></s:property>

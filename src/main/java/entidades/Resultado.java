@@ -3,29 +3,35 @@ package entidades;
 public class Resultado {
 	Integer idResultado;
 	Integer idExame;
+	Integer idPaciente;
 	String nomeExame;
+	String nomePaciente;
 	String data;
 	String resultado;
 	
 	public Resultado() {}
 	
-	public Resultado(Integer idExame, String data, String resultado) {
+	public Resultado(Integer idExame, Integer idPaciente, String data, String resultado) {
 		this.idExame = idExame;
+		this.idPaciente = idPaciente;
 		this.data = data;
 		this.resultado = resultado;
 	}
 	
-	public Resultado(Integer idResultado, Integer idExame, String data, String resultado) {
+	public Resultado(Integer idResultado,Integer idExame,  Integer idPaciente, String data, String resultado) {
 		this.idResultado = idResultado;
 		this.idExame = idExame;
+		this.idPaciente = idPaciente;
 		this.data = data;
 		this.resultado = resultado;
 	}
 	
-	public Resultado(Integer idResultado, Integer idExame, String nomeExame, String data, String resultado) {
+	public Resultado(Integer idResultado, Integer idExame, Integer idPaciente, String nomeExame, String nomePaciente, String data, String resultado) {
 		this.idResultado = idResultado;
 		this.idExame = idExame;
+		this.idPaciente = idPaciente;
 		this.nomeExame = nomeExame;
+		this.nomePaciente = nomePaciente;
 		this.data = data;
 		this.resultado = resultado;
 	}
@@ -46,12 +52,28 @@ public class Resultado {
 		this.idExame = idExame;
 	}
 
+	public Integer getIdPaciente() {
+		return idPaciente;
+	}
+
+	public void setIdPaciente(Integer idPaciente) {
+		this.idPaciente = idPaciente;
+	}
+
 	public String getNomeExame() {
 		return nomeExame;
 	}
 
 	public void setNomeExame(String nomeExame) {
 		this.nomeExame = nomeExame;
+	}
+
+	public String getNomePaciente() {
+		return nomePaciente;
+	}
+
+	public void setNomePaciente(String nomePaciente) {
+		this.nomePaciente = nomePaciente;
 	}
 
 	public String getData() {

@@ -53,7 +53,8 @@ public class ResultadoIncluir extends ActionSupport{
 			return INPUT;
 		
 		ResultadosDao rDao = new ResultadosDao();
-		rDao.inserir(resultadoObj);
+		Integer idResultado = rDao.inserir(resultadoObj);
+		resultadoObj = rDao.getResultado(idResultado);
 		
 		return SUCCESS;
 	}

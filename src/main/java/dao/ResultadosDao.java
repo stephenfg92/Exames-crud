@@ -9,7 +9,7 @@ import entidades.Resultado;
 
 public class ResultadosDao extends Dao{
 	public Integer inserir(Resultado r) {
-		String sql = "INSERT INTO Resultados (IdExame, Data, Resultado) VALUES (?, ? ,?);";
+		String sql = "INSERT INTO Resultados (IdExame, IdPaciente, Data, Resultado) VALUES (?, ?, ?, ?);";
 		Integer idResultado = null;
 		
 		try {
@@ -17,8 +17,9 @@ public class ResultadosDao extends Dao{
 			
 			stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, r.getIdExame());
-			stmt.setString(2, r.getData());
-			stmt.setString(3, r.getResultado());
+			stmt.setInt(2, r.getIdPaciente());
+			stmt.setString(3, r.getData());
+			stmt.setString(4, r.getResultado());
 			
 			stmt.executeUpdate();			
 			
@@ -38,22 +39,27 @@ public class ResultadosDao extends Dao{
 	
 	
 	public ArrayList<Resultado> listar() {
-		StringBuilder sql = new StringBuilder()
-				.append(" SELECT IdResultado, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado ")
-				.append(" FROM Resultados AS r ")
-				.append(" JOIN Exames AS e ")
-				.append(" ON r.IdExame = e.IdExame; ");
-						
+		String sql = "SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  FROM Resultados AS r  JOIN Pacientes AS p  ON r.IdPaciente = p.IdPaciente  JOIN Exames AS e  ON r.IdExame = e.IdExame;";
 		ArrayList<Resultado> resultados = new ArrayList<Resultado>();
 		
 		try {
 			conectar();
-			stmt = conexao.prepareStatement(sql.toString());
+			
+			stmt = conexao.prepareStatement(sql);
 			
 			rs = stmt.executeQuery();
-			while(rs.next()){
-				Resultado r = new Resultado(rs.getInt("IdResultado"), rs.getInt("IdExame"), rs.getString("NomeExame"), rs.getString("Data"), rs.getString("Resultado"));
-				resultados.add(r);
+			
+			while(rs.next()) {
+                int idResultado = rs.getInt("IdResultado");
+                int idExame = rs.getInt("IdExame");
+                int idPaciente = rs.getInt("IdPaciente");
+                String nomeExame =  rs.getString("NomeExame");
+                String nomePaciente = rs.getString("NomePaciente");
+                String data = rs.getString("Data");
+                String resultado = rs.getString("Resultado");		
+                
+                Resultado r = new Resultado(idResultado, idExame, idPaciente, nomeExame, nomePaciente, data, resultado);
+                resultados.add(r);				
 			}
 			
 		} catch (Exception e) {
@@ -118,7 +124,7 @@ public class ResultadosDao extends Dao{
 	
 	
 	public Resultado getResultado(Integer idResultado) {
-		String sql = "SELECT * From Resultados where IdResultado = ?;";
+		String sql = "SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  FROM Resultados AS r  JOIN Pacientes AS p  ON r.IdPaciente = p.IdPaciente  JOIN Exames AS e  ON r.IdExame = e.IdExame WHERE IdResultado = ?";
 		Resultado r = null;
 		
 		try {
@@ -129,7 +135,14 @@ public class ResultadosDao extends Dao{
 			
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				r = new Resultado(rs.getInt("IdResultado"), rs.getInt("IdExame"), rs.getString("Data"), rs.getString("Resultado"));
+                int idExame = rs.getInt("IdExame");
+                int idPaciente = rs.getInt("IdPaciente");
+                String nomeExame =  rs.getString("NomeExame");
+                String nomePaciente = rs.getString("NomePaciente");
+                String data = rs.getString("Data");
+                String resultado = rs.getString("Resultado");		
+				
+				r = new Resultado(idResultado, idExame, idPaciente, nomeExame, nomePaciente, data, resultado);
 			}
 			
 			assert(r.getIdResultado().equals(idResultado));			
