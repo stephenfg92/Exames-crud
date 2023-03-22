@@ -71,6 +71,11 @@
             <result name="success">/resultado/resultadoListar.jsp</result>
         </action>
         
+        <action name="resultadoObter" class="actions.ResultadoObter" method="execute">
+            <result name="success">/resultado/resultadoEditar.jsp</result>
+			<result name="input">/resultado/resultadoExcluir.jsp</result>
+        </action>
+        
         <action name="resultadoIncluir" class="actions.ResultadoIncluir" method="execute">
 			<result name="input">/resultado/resultadoIncluir.jsp</result>
             <result name="success">/resultado/resultadoIncluirSucesso.jsp</result>

@@ -46,14 +46,14 @@
                 </td>
                 <td>
                     <s:url action="resultadoObter" var="linkResultadoAtualizar">
-                        <s:param name="idExame"><s:property value="#r.getIdResultado()"></s:property></s:param>
+                        <s:param name="idResultado"><s:property value="#r.getIdResultado()"></s:property></s:param>
                         <s:param name="excluir"><s:property value="false"></s:property></s:param>
                     </s:url>
                     <s:a href="%{linkResultadoAtualizar}">Editar</s:a><br>
                 </td>
                 <td>
                     <s:url action="resultadoObter" var="linkResultadoExcluir">
-                        <s:param name="idExame"><s:property value="#r.getIdResultado()"></s:property></s:param>
+                        <s:param name="idResultado"><s:property value="#r.getIdResultado()"></s:property></s:param>
                         <s:param name="excluir"><s:property value="true"></s:property></s:param>
                     </s:url>
                     <s:a href="%{linkResultadoExcluir}">Excluir</s:a><br>

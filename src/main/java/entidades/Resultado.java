@@ -11,6 +11,12 @@ public class Resultado {
 	
 	public Resultado() {}
 	
+	public Resultado(Integer idResultado, String data, String resultado) {
+		this.idResultado = idResultado;
+		this.data = data;
+		this.resultado = resultado;
+	}
+	
 	public Resultado(Integer idExame, Integer idPaciente, String data, String resultado) {
 		this.idExame = idExame;
 		this.idPaciente = idPaciente;
