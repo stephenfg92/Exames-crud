@@ -16,20 +16,19 @@
       <s:select name="resultadoObj.idPaciente" label="Paciente" list="pacientes" listKey="idPaciente" listValue="nomePaciente" />
       <s:textfield name="resultadoObj.data" label="Data" class="inputMasked"/>
       <script>Inputmask("99/99/9999").mask(".inputMasked");</script>
-      <script>
-        const form = document.querySelector("#validarData");
-        form.addEventListener('submit', (event) => {
-          const dataString = document.querySelector('[name="resultadoObj.data"]').value;
-          if (!validardata(dataString)) {
-            event.preventDefault(); // prevent form submission
-            alert('Data inválida! A data deve ser igual ou maior a data atual.'); // show warning message
-          }
-        });
-      </script>
       <s:textfield name="resultadoObj.resultado" label="Resultado" />
       <s:submit/>
     </s:form>	
-
     <p><a href="<s:url action='resultadoListar'/>">Voltar</a></p>
+    <script>
+      const form = document.querySelector("#validarData");
+      form.addEventListener('submit', (event) => {
+        const dataString = document.querySelector('[name="resultadoObj.data"]').value;
+        if (!validardata(dataString)) {
+          event.preventDefault();
+          alert('Data inválida! A data deve ser igual ou maior a data atual.');
+        }
+      });
+    </script>
   </body>
 </html>

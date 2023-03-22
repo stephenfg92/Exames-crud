@@ -39,7 +39,15 @@ public class ResultadosDao extends Dao{
 	
 	
 	public ArrayList<Resultado> listar() {
-		String sql = "SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  FROM Resultados AS r  JOIN Pacientes AS p  ON r.IdPaciente = p.IdPaciente  JOIN Exames AS e  ON r.IdExame = e.IdExame;";
+		String sql = 
+				"SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  "
+				+ "FROM Resultados AS r  "
+				+ "JOIN Pacientes AS p  "
+				+ "ON r.IdPaciente = p.IdPaciente  "
+				+ "JOIN Exames AS e  "
+				+ "ON r.IdExame = e.IdExame "
+				+ "ORDER BY NomePaciente ASC, NomeExame ASC; ";
+		
 		ArrayList<Resultado> resultados = new ArrayList<Resultado>();
 		
 		try {
@@ -124,7 +132,14 @@ public class ResultadosDao extends Dao{
 	
 	
 	public Resultado getResultado(Integer idResultado) {
-		String sql = "SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  FROM Resultados AS r  JOIN Pacientes AS p  ON r.IdPaciente = p.IdPaciente  JOIN Exames AS e  ON r.IdExame = e.IdExame WHERE IdResultado = ?";
+		String sql = "SELECT r.IdResultado, p.IdPaciente, p.Nome AS NomePaciente, r.Data, r.IdExame, e.Nome AS NomeExame, r.Resultado  "
+				+ "FROM Resultados AS r  "
+				+ "JOIN Pacientes AS p  "
+				+ "ON r.IdPaciente = p.IdPaciente  "
+				+ "JOIN Exames AS e  "
+				+ "ON r.IdExame = e.IdExame "
+				+ "WHERE IdResultado = ?";
+		
 		Resultado r = null;
 		
 		try {

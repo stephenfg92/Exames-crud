@@ -15,13 +15,13 @@
                     ID
                 </th>
                 <th>
-                    Data
-                </th>
-                <th>
                     Paciente
                 </th>
                 <th>
                     Exame
+                </th>
+                <th>
+                    Data
                 </th>
                 <th>
                     Resultado
@@ -33,13 +33,13 @@
                     <s:property value="#r.getIdResultado()"></s:property>
                 </td>
                 <td>
-                    <s:property value="#r.getData()"></s:property>
-                </td>
-                <td>
                     <s:property value="#r.getNomePaciente()"></s:property>
                 </td>
                 <td>
                     <s:property value="#r.getNomeExame()"></s:property>
+                </td>
+                <td>
+                    <s:property value="#r.getData()"></s:property>
                 </td>
                 <td>
                     <s:property value="#r.getResultado()"></s:property>
